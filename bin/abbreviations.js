@@ -2,13 +2,16 @@
 
 const options = require('./options');
 
-const { HELP_OPTION,
+const { PORT_OPTION,
+        HELP_OPTION,
         VERSION_OPTION  } = options;
 
-const h = HELP_OPTION,
+const p = PORT_OPTION,
+      h = HELP_OPTION,
       v = VERSION_OPTION;
 
 module.exports = {
+  p,
   h,
   v
 };

@@ -17,6 +17,8 @@ Options:
 
   --help|-h                                      Show this help
   
+  --port|-p                                      The port. The default is 3000.
+
 Further information:
 
 Please see the readme file on GitHub:
