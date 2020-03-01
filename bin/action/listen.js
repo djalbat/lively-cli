@@ -24,7 +24,7 @@ function listen(options) {
         registerHandler = watch(watchPattern);
 
   createServer((request, response) => {
-    registerHandler(() => response.end())
+    registerHandler(response.end)
   }).listen(port);
 }
 

@@ -3,18 +3,18 @@
 const chokidar = require('chokidar');
 
 function watch(watchPattern) {
-  let events = 0,
-      handler;
-
   const watcher = chokidar.watch(watchPattern);
+
+  let unhandledEvents = 0,
+      handler;
 
   unregisterHandler();
 
   watcher.on('ready', () => {
     watcher.on('all', (event, path) => {
-      events++;
+      unhandledEvents++;
 
-      callHandler();
+      invokeHandler();
 
       unregisterHandler();
     });
@@ -22,22 +22,22 @@ function watch(watchPattern) {
 
   return registerHandler;
 
-  function callHandler() {
+  function invokeHandler() {
     if (handler) {
       handler();
 
-      events--;
+      unhandledEvents--;
     }
   }
 
   function registerHandler(argument) {
     handler = argument;  ///
 
-    if (events === 0) {
+    if (unhandledEvents === 0) {
       return;
     }
 
-    callHandler();
+    invokeHandler();
 
     unregisterHandler();
   }
