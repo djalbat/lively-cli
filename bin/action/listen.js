@@ -21,10 +21,10 @@ function listen(options) {
   }
 
   const { port = DEFAULT_PORT } = options,
-        registerCallback = watch(watchPattern);
+        registerHandler = watch(watchPattern);
 
   createServer((request, response) => {
-    registerCallback(() => response.end())
+    registerHandler(() => response.end())
   }).listen(port);
 }
 

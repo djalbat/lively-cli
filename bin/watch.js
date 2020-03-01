@@ -3,18 +3,47 @@
 const chokidar = require('chokidar');
 
 function watch(watchPattern) {
-  let callback;
+  let events = 0,
+      handler;
 
   const watcher = chokidar.watch(watchPattern);
 
+  unregisterHandler();
+
   watcher.on('ready', () => {
     watcher.on('all', (event, path) => {
-      callback && callback()
+      events++;
+
+      callHandler();
+
+      unregisterHandler();
     });
   });
 
-  return function registerCallback(argument) {
-    callback = argument;  ///
+  return registerHandler;
+
+  function callHandler() {
+    if (handler) {
+      handler();
+
+      events--;
+    }
+  }
+
+  function registerHandler(argument) {
+    handler = argument;  ///
+
+    if (events === 0) {
+      return;
+    }
+
+    callHandler();
+
+    unregisterHandler();
+  }
+
+  function unregisterHandler() {
+    handler = undefined;
   }
 }
 
