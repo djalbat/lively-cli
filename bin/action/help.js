@@ -19,6 +19,8 @@ Options:
   
   --port|-p                                      The port. The default is 3000.
 
+  --watch|-w                                     The glob pattern of files to watch.
+
 Further information:
 
 Please see the readme file on GitHub:
