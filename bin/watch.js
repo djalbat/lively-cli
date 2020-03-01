@@ -2,6 +2,10 @@
 
 const chokidar = require('chokidar');
 
+const swirlyUtilities = require('./utilities/swirly');
+
+const { swirlyThing } = swirlyUtilities;
+
 function watch(watchPattern) {
   const watcher = chokidar.watch(watchPattern);
 
@@ -13,6 +17,8 @@ function watch(watchPattern) {
   watcher.on('ready', () => {
     watcher.on('all', (event, path) => {
       unhandledEvents++;
+
+      swirlyThing();
 
       invokeHandler();
 
