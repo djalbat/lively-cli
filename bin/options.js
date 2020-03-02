@@ -3,11 +3,13 @@
 const PORT_OPTION = 'port',
       HELP_OPTION = 'help',
       VERSION_OPTION = 'version',
-      WATCH_PATTERN_OPTION = 'watch-pattern';
+      WATCH_PATTERN_OPTION = 'watch-pattern',
+      ALLOWED_ORIGIN_OPTION = 'allowed-origin';
 
 module.exports = {
   PORT_OPTION,
   HELP_OPTION,
   VERSION_OPTION,
-  WATCH_PATTERN_OPTION
+  WATCH_PATTERN_OPTION,
+  ALLOWED_ORIGIN_OPTION
 };

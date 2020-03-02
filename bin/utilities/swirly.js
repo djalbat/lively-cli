@@ -6,6 +6,10 @@ const { stdout } = process,
       { SWIRLY_INTERVAL } = constants;
 
 function swirlyThing() {
+  return;
+
+  ///
+  
   let count = 0,
       identifier = setInterval(swirl, SWIRLY_INTERVAL);
 

@@ -4,15 +4,17 @@ const http = require('http');
 
 const watch = require('../watch'),
       messages = require('../messages'),
-      constants = require('../constants');
+      constants = require('../constants'),
+      headersUtilities = require('../utilities/headers');
 
 const { exit } = process,
       { createServer } = http,
-      { DEFAULT_PORT } = constants,
-      { NO_WATCH_PATTERN } = messages;
+      { headersFromAllowedOrigin } = headersUtilities,
+      { NO_WATCH_PATTERN, NO_ALLOWED_ORIGIN } = messages,
+      { GET_METHOD, DEFAULT_PORT, OPTIONS_METHOD, HTTP_200_STATUS_CODE } = constants;
 
 function listen(options) {
-  const { watchPattern } = options;
+  const { watchPattern, allowedOrigin } = options;
 
   if (!watchPattern) {
     console.log(NO_WATCH_PATTERN);
@@ -20,13 +22,36 @@ function listen(options) {
     exit(1);
   }
 
+  if (!allowedOrigin) {
+    console.log(NO_ALLOWED_ORIGIN);
+
+    exit(1);
+  }
+
   const { port = DEFAULT_PORT } = options,
-        registerHandler = watch(watchPattern);
+        registerHandler = watch(watchPattern),
+        statusCode = HTTP_200_STATUS_CODE,
+        headers = headersFromAllowedOrigin(allowedOrigin);
 
   createServer((request, response) => {
-    registerHandler(() => {
-      response.end();
-    });
+    const { method } = request;
+
+    switch (method) {
+      case GET_METHOD :
+        registerHandler(() => {
+          response.writeHead(statusCode, headers);
+
+          response.end();
+        });
+        break;
+
+      case OPTIONS_METHOD :
+        response.writeHead(statusCode, headers);
+
+        response.end();
+        break;
+    }
+
   }).listen(port);
 }
 
