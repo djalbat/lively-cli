@@ -2,7 +2,7 @@
 
 Live relaoding when files change.
 
-Lively watches files and reports when they change, allowing a website under development to be reloaded immediately thereafter. 
+Lively watches files and reports when they change, typically allowing a website to be reloaded immediately thereafter. 
 
 Lively works best hand in hand with [Watchful](https://github.com/djalbat/watchful-cli). 
 
