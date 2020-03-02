@@ -12,7 +12,11 @@ let count,
     swirls = 0,
     identifier;
 
-function swirl() {
+function swirl(quietly) {
+  if (quietly) {
+    return;
+  }
+
   swirls++;
 
   if (swirls === 1) {
@@ -31,7 +35,7 @@ function swirly() {
 
   clearLine(stdout, 0);
 
-  cursorTo(stdout, 0);
+  cursorTo(stdout, 0, null);
 
   switch (count) {
     case 1: stdout.write('↱'); break;

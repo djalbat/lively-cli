@@ -6,7 +6,7 @@ const swirlyUtilities = require('./utilities/swirly');
 
 const { swirl } = swirlyUtilities;
 
-function watch(watchPattern) {
+function watch(watchPattern, quietly) {
   const watcher = chokidar.watch(watchPattern);
 
   let unhandledEvents = 0,
@@ -18,7 +18,7 @@ function watch(watchPattern) {
     watcher.on('all', (event, path) => {
       unhandledEvents++;
 
-      swirl();
+      swirl(quietly);
 
       invokeHandler();
 

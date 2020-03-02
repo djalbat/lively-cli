@@ -14,7 +14,7 @@ const { exit } = process,
       { GET_METHOD, DEFAULT_PORT, OPTIONS_METHOD, HTTP_200_STATUS_CODE } = constants;
 
 function listen(options) {
-  const { watchPattern, allowedOrigin } = options;
+  const { quietly, watchPattern, allowedOrigin } = options;
 
   if (!watchPattern) {
     console.log(NO_WATCH_PATTERN);
@@ -29,7 +29,7 @@ function listen(options) {
   }
 
   const { port = DEFAULT_PORT } = options,
-        registerHandler = watch(watchPattern),
+        registerHandler = watch(watchPattern, quietly),
         statusCode = HTTP_200_STATUS_CODE,
         headers = headersFromAllowedOrigin(allowedOrigin);
 
