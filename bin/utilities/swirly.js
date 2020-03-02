@@ -1,9 +1,12 @@
 'use strict';
 
+const readline = require('readline');
+
 const constants = require('../constants');
 
 const { stdout } = process,
-      { SWIRLY_INTERVAL } = constants;
+      { SWIRLY_INTERVAL } = constants,
+      { clearLine, cursorTo } = readline;
 
 let count,
     swirls = 0,
@@ -26,9 +29,9 @@ module.exports = {
 function swirly() {
   count++;
 
-  stdout.clearLine(0);
+  clearLine(stdout, 0);
 
-  stdout.cursorTo(0);
+  cursorTo(stdout, 0);
 
   switch (count) {
     case 1: stdout.write('↱'); break;
