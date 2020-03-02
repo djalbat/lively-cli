@@ -47,7 +47,7 @@ Options:
 
   --watch-pattern|-w                             The glob pattern of files to watch.
 
-  --allowed_origin|-o                            The URL of the allowed origin, including port and protocol
+  --allowed_origin|-o                            The allowed origin, including port and protocol
 ```
 
 The typical use case is to watch a bundle file produced by Watchful and notify the browser whenever it changes.
@@ -74,15 +74,16 @@ There is a small amount of JavaScript needed in order to connect to Lively:
   xmlHttpRequest.send();
 
 </script>
-
 ```
-It is strongly recommended that you use this only in development versions of your website. Use a templating system to include it only when a certain environment variable is set, for example.
+It is strongly recommended that you use this only in development versions of your website. You could make use of a templating system to include it only when a certain environment variable is set, for example.
 
 Once you have started Lively, refresh your browser and, assuming that the above code snippet is present, the page will be reloaded whenever the watched files change.
 
 ### Running by way of npm scripts
 
-As already mentioned, it is recommended that you install Lively as a project dependency rather than globally, then run it with npm scripts. What follows is best read with the Watchful npm scripts example in mind. Here are the additional or amended scripts to do with Lively: 
+What follows is best read with the Watchful npm scripts example in mind. 
+
+As already mentioned, it is recommended that you install Lively as a project dependency rather than globally, then run it with npm scripts. Here are the additional or amended scripts to do with Lively: 
 
 ```
 
@@ -90,12 +91,14 @@ As already mentioned, it is recommended that you install Lively as a project dep
   
     ...
     
-    "lively": "lively --watch-pattern=./public/lib/client.js --allowed-origin=http://localhost:8084 --quietly",
+    "lively": "lively --watch-pattern=./public/lib/client.js --allowed-origin=http://localhost:8084",
     
     ...
     
     "watch": "npm run clean && npm run batch && concurrently 'npm run incremental' 'npm run lively'",
-    "watch-debug": "npm run clean && npm run batch-debug && concurrently 'npm run incremental-debug' 'npm run lively'"
+    
+    ...
+    
   }
 ```
 
@@ -103,7 +106,7 @@ These are the points worth noting:
 
 * The `lively` script invokes Lively with the requisite options. Using a dedicated script in this way means that the options only have to be specified once.
 
-* The `watch` and `watch-debug` scripts have been amended to run both Watchful and Lively concurrently. The [Concurrently](https://github.com/kimmobrunfeldt/concurrently) package is used for this, in fact.
+* The `watch` script has been amended to run both Watchful and Lively concurrently. The `watch-debug` script can be treated entirely similarly. The [Concurrently](https://github.com/kimmobrunfeldt/concurrently) package is used for this, in fact.
 
 The Concurrently package has not been included in the dependencies because there are other approaches. You will therefore need to install it explicitly if you choose this approach.
         

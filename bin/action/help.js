@@ -23,7 +23,7 @@ Options:
 
   --watch-pattern|-w                             The glob pattern of files to watch.
 
-  --allowed_origin|-o                            The URL of the allowed origin, including port and protocol
+  --allowed_origin|-o                            The allowed origin, including port and protocol
 
 Further information:
 
