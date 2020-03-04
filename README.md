@@ -65,7 +65,9 @@ There is a small amount of JavaScript needed in order to connect to Lively:
 
   xmlHttpRequest.onreadystatechange = function() {
     if (xmlHttpRequest.readyState == 4) {
-      location.reload();
+      if (xmlHttpRequest.status == 200) {
+        location.reload();
+      }
     }
   };
 
