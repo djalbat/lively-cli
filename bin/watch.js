@@ -2,54 +2,50 @@
 
 const chokidar = require('chokidar');
 
-const swirlyUtilities = require('./utilities/swirly');
-
-const { swirl } = swirlyUtilities;
-
 function watch(watchPattern, quietly) {
+  if (!quietly) {
+    console.log(`Watching '${watchPattern}'.`);
+  }
+
   const watcher = chokidar.watch(watchPattern);
 
-  let unhandledEvents = 0,
+  let unhandledEvents = false,
       handler;
 
   unregisterHandler();
 
   watcher.on('ready', () => {
     watcher.on('all', (event, path) => {
-      unhandledEvents++;
+      unhandledEvents = true;
 
-      swirl(quietly);
-
-      invokeHandler();
-
-      unregisterHandler();
+      callHandler();
     });
   });
 
   return registerHandler;
 
-  function invokeHandler() {
-    if (handler) {
+  function callHandler() {
+    if (unhandledEvents && handler) {
+      if (!quietly) {
+        console.log(`Calling handler.`);
+      }
+
       handler();
 
-      unhandledEvents--;
+      handler = undefined;
+
+      unhandledEvents = false;
     }
   }
 
   function registerHandler(argument) {
-    handler = argument;  ///
-
-    if (unhandledEvents === 0) {
-      return;
+    if (!quietly) {
+      console.log(`Registering handler.`);
     }
 
-    invokeHandler();
+    handler = argument;  ///
 
-    unregisterHandler();
-  }
-
-  function unregisterHandler() {
-    handler = undefined;
+    callHandler();
   }
 }
 
