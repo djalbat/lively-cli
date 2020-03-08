@@ -37,12 +37,17 @@ function listen(options) {
     const { method } = request;
 
     switch (method) {
-      case GET_METHOD :
-        response.writeHead(statusCode, headers);
+      case GET_METHOD : {
+          const { connection } = response;
 
-        registerHandler(() => {
-          response.end();
-        });
+          response.writeHead(statusCode, headers);
+
+          connection.setTimeout(0);
+
+          registerHandler(() => {
+            response.end();
+          });
+        }
         break;
 
       case OPTIONS_METHOD :
