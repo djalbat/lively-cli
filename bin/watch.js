@@ -12,8 +12,6 @@ function watch(watchPattern, quietly) {
   let unhandledEvents = false,
       handler;
 
-  unregisterHandler();
-
   watcher.on('ready', () => {
     watcher.on('all', (event, path) => {
       unhandledEvents = true;
