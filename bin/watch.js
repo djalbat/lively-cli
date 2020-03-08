@@ -9,8 +9,8 @@ function watch(watchPattern, quietly) {
 
   const watcher = chokidar.watch(watchPattern);
 
-  let unhandledEvents = false,
-      handler;
+  let handler,
+      unhandledEvents = false;
 
   watcher.on('ready', () => {
     watcher.on('all', (event, path) => {
