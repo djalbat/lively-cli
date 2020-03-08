@@ -31,28 +31,31 @@ function listen(options) {
   const { port = DEFAULT_PORT } = options,
         registerHandler = watch(watchPattern, quietly),
         statusCode = HTTP_200_STATUS_CODE,
-        headers = headersFromAllowedOrigin(allowedOrigin);
+        headers = headersFromAllowedOrigin(allowedOrigin),
+        server = createServer((request, response) => {
+          const { method } = request;
 
-  createServer((request, response) => {
-    const { method } = request;
+          switch (method) {
+            case GET_METHOD :
+              registerHandler(() => {
+                response.writeHead(statusCode, headers);
 
-    switch (method) {
-      case GET_METHOD :
-        registerHandler(() => {
-          response.writeHead(statusCode, headers);
+                response.end();
+              });
+              break;
 
-          response.end();
+            case OPTIONS_METHOD :
+              response.writeHead(statusCode, headers);
+
+              response.end();
+              break;
+          }
+
         });
-        break;
 
-      case OPTIONS_METHOD :
-        response.writeHead(statusCode, headers);
+  server.timeeout = 0;
 
-        response.end();
-        break;
-    }
-
-  }).listen(port);
+  server.listen(port);
 }
 
 module.exports = listen;
