@@ -1,8 +1,8 @@
 {
   "name": "lively-cli",
   "author": "James Smith",
-  "version": "1.1.7",
-  "license": "MIT, Anti-886",
+  "version": "1.1.8",
+  "license": "MIT, Anti-996",
   "homepage": "https://github.com/djalbat/lively-cli",
   "description": "Live reloading when files change.",
   "repository": {
