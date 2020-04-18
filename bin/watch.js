@@ -14,8 +14,6 @@ function watch(watchPattern, quietly) {
 
   watcher.on('ready', () => {
     watcher.on('all', (event, path) => {
-      console.log(event)
-
       unhandledEvents = true;
 
       callHandler();
