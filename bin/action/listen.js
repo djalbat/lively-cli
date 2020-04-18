@@ -11,10 +11,10 @@ const { exit } = process,
       { createServer } = http,
       { headersFromAllowedOrigin } = headersUtilities,
       { NO_WATCH_PATTERN, NO_ALLOWED_ORIGIN } = messages,
-      { GET_METHOD, DEFAULT_PORT, OPTIONS_METHOD, HTTP_200_STATUS_CODE } = constants;
+      { GET_METHOD, DEFAULT_PORT, DEFAULT_QUIETLY, OPTIONS_METHOD, HTTP_200_STATUS_CODE } = constants;
 
 function listen(options) {
-  const { quietly, watchPattern, allowedOrigin } = options;
+  const { watchPattern, allowedOrigin } = options;
 
   if (!watchPattern) {
     console.log(NO_WATCH_PATTERN);
@@ -28,7 +28,7 @@ function listen(options) {
     exit(1);
   }
 
-  const { port = DEFAULT_PORT } = options,
+  const { port = DEFAULT_PORT, quietly = DEFAULT_QUIETLY } = options,
         registerHandler = watch(watchPattern, quietly),
         statusCode = HTTP_200_STATUS_CODE,
         headers = headersFromAllowedOrigin(allowedOrigin);
