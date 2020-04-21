@@ -7,8 +7,7 @@ const watch = require('../watch'),
       constants = require('../constants'),
       headersUtilities = require('../utilities/headers');
 
-const { exit } = process,
-      { createServer } = http,
+const { createServer } = http,
       { headersFromAllowedOrigin } = headersUtilities,
       { NO_WATCH_PATTERN, NO_ALLOWED_ORIGIN } = messages,
       { GET_METHOD, DEFAULT_PORT, DEFAULT_QUIETLY, OPTIONS_METHOD, HTTP_200_STATUS_CODE } = constants;
@@ -19,13 +18,13 @@ function listen(options) {
   if (!watchPattern) {
     console.log(NO_WATCH_PATTERN);
 
-    exit(1);
+    process.exit(1);
   }
 
   if (!allowedOrigin) {
     console.log(NO_ALLOWED_ORIGIN);
 
-    exit(1);
+    process.exit(1);
   }
 
   const { port = DEFAULT_PORT, quietly = DEFAULT_QUIETLY } = options,
