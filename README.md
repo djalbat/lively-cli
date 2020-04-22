@@ -69,7 +69,7 @@ There is a small amount of JavaScript needed in order to connect to Lively:
     }
   };
 
-  xmlHttpRequest.open('GET', 'http://localhost:3000');
+  xmlHttpRequest.open("GET", "http://localhost:3000");
 
   xmlHttpRequest.send();
 
