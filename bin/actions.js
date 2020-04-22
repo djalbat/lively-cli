@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
-const help = require('./action/help'),
-      listen = require('./action/listen'),
-      version = require('./action/version'),
-      options = require('./options'),
-      commands = require('./commands');
+const help = require("./action/help"),
+      listen = require("./action/listen"),
+      version = require("./action/version"),
+      options = require("./options"),
+      commands = require("./commands");
 
 const { HELP_OPTION, VERSION_OPTION } = options,
       { HELP_COMMAND, VERSION_COMMAND } = commands;

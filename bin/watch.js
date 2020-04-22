@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
-const chokidar = require('chokidar');
+const chokidar = require("chokidar");
 
 function watch(watchPattern, quietly) {
   if (!quietly) {
-    console.log(`Watching '${watchPattern}'.`);
+    console.log(`Watching "${watchPattern}".`);
   }
 
   const watcher = chokidar.watch(watchPattern);
@@ -12,8 +12,8 @@ function watch(watchPattern, quietly) {
   let handler,
       unhandledEvents = false;
 
-  watcher.on('ready', () => {
-    watcher.on('all', (event, path) => {
+  watcher.on("ready", () => {
+    watcher.on("all", (event, path) => {
       unhandledEvents = true;
 
       callHandler();
@@ -25,7 +25,7 @@ function watch(watchPattern, quietly) {
   function callHandler() {
     if (unhandledEvents && handler) {
       if (!quietly) {
-        console.log(`Calling handler.`);
+        console.log("Calling handler.");
       }
 
       handler();
@@ -38,7 +38,7 @@ function watch(watchPattern, quietly) {
 
   function registerHandler(argument) {
     if (!quietly) {
-      console.log(`Registering handler.`);
+      console.log("Registering handler.");
     }
 
     handler = argument;  ///

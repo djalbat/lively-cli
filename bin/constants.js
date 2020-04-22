@@ -1,15 +1,15 @@
-'use strict';
+"use strict";
 
-const LIVELY_CLI = 'lively-cli',
-      GET_METHOD = 'GET',
+const LIVELY_CLI = "lively-cli",
+      GET_METHOD = "GET",
       DEFAULT_PORT = 3000,
-      OPTIONS_METHOD = 'OPTIONS',
+      OPTIONS_METHOD = "OPTIONS",
       DEFAULT_QUIETLY = false,
       HTTP_200_STATUS_CODE = 200,
-      PACKAGE_JSON_FILE_NAME = 'package.json',
-      ACCESS_CONTROL_ALLOW_HEADERS = '*',
-      ACCESS_CONTROL_ALLOW_METHODS = 'OPTIONS, GET',
-      ACCESS_CONTROL_REQUEST_METHOD = '*';
+      PACKAGE_JSON_FILE_NAME = "package.json",
+      ACCESS_CONTROL_ALLOW_HEADERS = "*",
+      ACCESS_CONTROL_ALLOW_METHODS = "OPTIONS, GET",
+      ACCESS_CONTROL_REQUEST_METHOD = "*";
 
 module.exports = {
   LIVELY_CLI,

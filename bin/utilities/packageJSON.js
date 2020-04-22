@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
-const constants = require('../constants'),
-      arrayUtilities = require('../utilities/array'),
-      fileSystemUtilities = require('../utilities/fileSystem');
+const constants = require("../constants"),
+      arrayUtilities = require("../utilities/array"),
+      fileSystemUtilities = require("../utilities/fileSystem");
 
 const { second } = arrayUtilities,
       { readFile } = fileSystemUtilities,

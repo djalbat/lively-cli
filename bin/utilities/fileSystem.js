@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
-const fs = require('fs');
+const fs = require("fs");
 
-function readFile(filePath, encoding = 'utf8') {
+function readFile(filePath, encoding = "utf8") {
   const options = {
         encoding
       },

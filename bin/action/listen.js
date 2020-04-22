@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
-const http = require('http');
+const http = require("http");
 
-const watch = require('../watch'),
-      messages = require('../messages'),
-      constants = require('../constants'),
-      headersUtilities = require('../utilities/headers');
+const watch = require("../watch"),
+      messages = require("../messages"),
+      constants = require("../constants"),
+      headersUtilities = require("../utilities/headers");
 
 const { createServer } = http,
       { headersFromAllowedOrigin } = headersUtilities,
