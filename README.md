@@ -86,20 +86,19 @@ What follows is best read with the Watchful npm scripts example in mind.
 As already mentioned, it is recommended that you install Lively as a project dependency rather than globally, then run it with npm scripts. Here are the additional or amended scripts to do with Lively: 
 
 ```
-
-  "scripts": {
+"scripts": {
   
-    ...
+  ...
     
-    "lively": "lively --watch-pattern=./public/lib/client.js --allowed-origin=http://localhost:8084",
+  "lively": "lively --watch-pattern=./public/lib/client.js --allowed-origin=http://localhost:8084",
     
-    ...
+  ...
     
-    "watch": "npm run clean && npm run batch && concurrently 'npm run incremental' 'npm run lively'",
+  "watch": "npm run clean && npm run batch && concurrently 'npm run incremental' 'npm run lively'",
     
-    ...
+  ...
     
-  }
+}
 ```
 
 These are the points worth noting:
