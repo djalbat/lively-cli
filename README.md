@@ -94,7 +94,7 @@ As already mentioned, it is recommended that you install Lively as a project dep
     
   ...
     
-  "watch": "npm run clean && npm run batch && concurrently 'npm run incremental' 'npm run lively'",
+  "watch": "npm run clean && npm run batch && concurrently -k 'npm run incremental' 'npm run lively'",
     
   ...
     
