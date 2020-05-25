@@ -24,6 +24,8 @@ If you would like to contribute or would simply like to have a look at the code,
     
 ## Usage
 
+Lively has the following commands and options:
+
 ```
   lively [<command>] [<options>]
 
