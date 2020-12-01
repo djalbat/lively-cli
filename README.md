@@ -2,7 +2,7 @@
 
 Live relaoding when files change.
 
-Lively watches files and reports when they change, typically allowing a website to be reloaded immediately thereafter. 
+Lively watches files and reports when they change, typically allowing a website to be reloaded when they do so. It can be run by way of npm scripts or it can be integrated into a server application.
 
 Lively works best hand in hand with [Watchful](https://github.com/djalbat/watchful-cli). 
 
@@ -110,7 +110,52 @@ These are the points worth noting:
 * The `watch` script has been amended to run both Watchful and Lively concurrently. The `watch-debug` script can be treated entirely similarly. The [Concurrently](https://github.com/kimmobrunfeldt/concurrently) package is used for this, in fact.
 
 The Concurrently package has not been included in the dependencies because there are other approaches. You will therefore need to install it explicitly if you choose this approach.
-        
+
+## Integrating into a server application
+
+Lively exports a `createReloadHandler()` function that can be used to create a handler, typically for use with [Express](https://expressjs.com/). For example:
+
+```
+"use strict";
+
+const lively = require("lively-cli"), ///
+      express = require("express");
+
+const { createReloadHandler } = lively;
+
+const server = express(); ///
+
+const quietly = true,
+      watchPattern = "./examples.js",
+      reloadHandler = createReloadHandler(watchPattern, quietly);
+
+server.get("/reload", reloadHandler);
+
+server.listen(8888);
+```
+Note that the `quietly` argument is optional, the default being `false`. The live reload snippet given earlier can also be simplified:
+
+```
+<script>
+
+  var xmlHttpRequest = new XMLHttpRequest();
+
+  xmlHttpRequest.onreadystatechange = function() {
+    if (xmlHttpRequest.readyState == 4) {
+      if (xmlHttpRequest.status == 200) {
+        location.reload();
+      }
+    }
+  };
+
+  xmlHttpRequest.open("GET", "/reload");
+
+  xmlHttpRequest.send();
+
+</script>
+```
+Note that the host can be dispensed with in `open()` method's second URL argument, only the relative `/reload` path needs to be given.
+
 ## Contact
 
 - james.smith@djalbat.com
