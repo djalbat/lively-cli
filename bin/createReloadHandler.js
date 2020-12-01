@@ -3,9 +3,9 @@
 const watch = require("./watch"),
       constants = require("./constants");
 
-const { HTTP_200_STATUS_CODE } = constants;
+const { HTTP_200_STATUS_CODE, DEFAULT_QUIETLY } = constants;
 
-function createReloadHandler(watchPattern, quietly) {
+function createReloadHandler(watchPattern, quietly = DEFAULT_QUIETLY) {
   const statusCode = HTTP_200_STATUS_CODE,
         registerHandler = watch(watchPattern, quietly);
 
