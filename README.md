@@ -113,7 +113,7 @@ The Concurrently package has not been included in the dependencies because there
 
 ## Integrating into a server application
 
-Lively exports a `createReloadHandler()` function that can be used to create a handler, typically for use with [Express](https://expressjs.com/). For example:
+Lively exports a `createReloadHandler()` function that can be used to create a handler for use with [Express](https://expressjs.com/). For example:
 
 ```
 "use strict";
@@ -133,7 +133,9 @@ server.get("/reload", reloadHandler);
 
 server.listen(8888);
 ```
-Note that the `quietly` argument is optional, the default being `false`. The live reload snippet given earlier can also be simplified:
+Note that the `quietly` argument is optional, the default being `false`.
+
+The live reload snippet given earlier can be simplified:
 
 ```
 <script>
@@ -154,7 +156,7 @@ Note that the `quietly` argument is optional, the default being `false`. The liv
 
 </script>
 ```
-Note that the host can be dispensed with in `open()` method's second URL argument, only the relative `/reload` path needs to be given.
+Note that the host is dispensed with in `open()` method's second URL argument, only the relative `/reload` path needs to be given.
 
 ## Contact
 
