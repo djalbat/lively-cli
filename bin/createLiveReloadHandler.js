@@ -5,11 +5,11 @@ const watch = require("./watch"),
 
 const { HTTP_200_STATUS_CODE, DEFAULT_QUIETLY } = constants;
 
-function createReloadHandler(watchPattern, quietly = DEFAULT_QUIETLY) {
+function createLiveReloadHandler(watchPattern, quietly = DEFAULT_QUIETLY) {
   const statusCode = HTTP_200_STATUS_CODE,
         registerHandler = watch(watchPattern, quietly);
 
-  return function reloadHandler(request, response) {
+  return function liveReloadHandler(request, response) {
     const { connection } = response;
 
     response.writeHead(statusCode);
@@ -22,4 +22,4 @@ function createReloadHandler(watchPattern, quietly = DEFAULT_QUIETLY) {
   }
 }
 
-module.exports = createReloadHandler;
+module.exports = createLiveReloadHandler;

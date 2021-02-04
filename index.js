@@ -1,7 +1,7 @@
 "use strict";
 
-const createReloadHandler = require("./bin/createReloadHandler");
+const createLiveReloadHandler = require("./bin/createLiveReloadHandler");
 
 module.exports = {
-  createReloadHandler
+  createLiveReloadHandler
 };

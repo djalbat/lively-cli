@@ -4,9 +4,9 @@ const fs = require("fs");
 
 function readFile(filePath, encoding = "utf8") {
   const options = {
-        encoding
-      },
-      content = fs.readFileSync(filePath, options);
+          encoding
+        },
+        content = fs.readFileSync(filePath, options);
 
   return content;
 }
