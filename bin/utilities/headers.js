@@ -1,10 +1,8 @@
 "use strict";
 
-const constants = require("../constants");
-
 const { ACCESS_CONTROL_ALLOW_METHODS,
         ACCESS_CONTROL_ALLOW_HEADERS,
-        ACCESS_CONTROL_REQUEST_METHOD } = constants;
+        ACCESS_CONTROL_REQUEST_METHOD } = require("../constants");
 
 function headersFromAllowedOrigin(allowedOrigin) {
   const headers = {

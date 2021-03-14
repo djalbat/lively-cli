@@ -1,9 +1,8 @@
 "use strict";
 
-const watch = require("./watch"),
-      constants = require("./constants");
+const watch = require("./watch");
 
-const { HTTP_200_STATUS_CODE, DEFAULT_QUIETLY } = constants;
+const { HTTP_200_STATUS_CODE, DEFAULT_QUIETLY } = require("./constants");
 
 function createLiveReloadHandler(watchPattern, quietly = DEFAULT_QUIETLY) {
   const statusCode = HTTP_200_STATUS_CODE,

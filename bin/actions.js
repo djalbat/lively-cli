@@ -2,12 +2,10 @@
 
 const help = require("./action/help"),
       listen = require("./action/listen"),
-      version = require("./action/version"),
-      options = require("./options"),
-      commands = require("./commands");
+      version = require("./action/version");
 
-const { HELP_OPTION, VERSION_OPTION } = options,
-      { HELP_COMMAND, VERSION_COMMAND } = commands;
+const { HELP_OPTION, VERSION_OPTION } = require("./options"),
+      { HELP_COMMAND, VERSION_COMMAND } = require("./commands");
 
 function actions(command, argument, options) {
   const helpOptionPresent = options.hasOwnProperty(HELP_OPTION),

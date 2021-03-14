@@ -1,13 +1,11 @@
 "use strict";
 
-const options = require("./options");
-
 const { PORT_OPTION,
         HELP_OPTION,
         QUIETLY_OPTION,
         VERSION_OPTION,
         WATCH_PATTERN_OPTION,
-        ALLOWED_ORIGIN_OPTION } = options;
+        ALLOWED_ORIGIN_OPTION } = require("./options");
 
 const p = PORT_OPTION,
       h = HELP_OPTION,

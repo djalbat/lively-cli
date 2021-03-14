@@ -1,16 +1,12 @@
 "use strict";
 
-const http = require("http");
+const { createServer } = require("http");
 
-const watch = require("../watch"),
-      messages = require("../messages"),
-      constants = require("../constants"),
-      headersUtilities = require("../utilities/headers");
+const watch = require("../watch");
 
-const { createServer } = http,
-      { headersFromAllowedOrigin } = headersUtilities,
-      { NO_WATCH_PATTERN, NO_ALLOWED_ORIGIN } = messages,
-      { GET_METHOD, DEFAULT_PORT, DEFAULT_QUIETLY, OPTIONS_METHOD, HTTP_200_STATUS_CODE } = constants;
+const { headersFromAllowedOrigin } = require("../utilities/headers"),
+      { NO_WATCH_PATTERN, NO_ALLOWED_ORIGIN } = require("../messages"),
+      { GET_METHOD, DEFAULT_PORT, DEFAULT_QUIETLY, OPTIONS_METHOD, HTTP_200_STATUS_CODE } = require("../constants");
 
 function listen(options) {
   const { watchPattern, allowedOrigin } = options;

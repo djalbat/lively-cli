@@ -2,9 +2,10 @@
 
 const argumentative = require("argumentative");
 
+const { arrayUtilities } = require("necessary");
+
 const main = require("./bin/main"),
-      abbreviations = require("./bin/abbreviations"),
-      arrayUtilities = require("./bin/utilities/array");
+      abbreviations = require("./bin/abbreviations");
 
 const { parseArgv } = argumentative,
       { first, second } = arrayUtilities;
