@@ -31,7 +31,7 @@ Lively has the following commands and options:
 
 Commands:
 
-  version                                        Show theh version
+  version                                        Show the version
 
   help                                           Show this help
   
