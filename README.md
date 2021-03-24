@@ -1,6 +1,6 @@
 # Lively-CLI
 
-Live relaoding when files change.
+Live reloading when files change.
 
 Lively watches files and reports when they change, typically allowing a website to be reloaded when they do so. It can be run by way of npm scripts or it can be integrated into a server application.
 
