@@ -2,10 +2,11 @@
 
 const watch = require("./watch");
 
-const { HTTP_200_STATUS_CODE, DEFAULT_QUIETLY } = require("./constants");
+const { DEFAULT_QUIETLY } = require("./defaults"),
+      { OKAY_200_STATUS_CODE } = require("./statusCodes");
 
 function createLiveReloadHandler(watchPattern, quietly = DEFAULT_QUIETLY) {
-  const statusCode = HTTP_200_STATUS_CODE,
+  const statusCode = OKAY_200_STATUS_CODE,
         registerHandler = watch(watchPattern, quietly);
 
   return function liveReloadHandler(request, response) {
