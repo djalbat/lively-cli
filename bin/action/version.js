@@ -1,7 +1,10 @@
 "use strict";
 
-const { LIVELY_CLI } = require("../constants"),
-      { getPackageVersion } = require("../utilities/packageJSON");
+const { constants } = require("../../lib/index");
+
+const { getPackageVersion } = require("../utilities/packageJSON");
+
+const { LIVELY_CLI } = constants;
 
 function version() {
   const packageVersion = getPackageVersion(),

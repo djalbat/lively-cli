@@ -1,14 +1,21 @@
 "use strict";
 
-const { WILDCARD, OPTIONS_GET } = require("../constants");
+import { constants } from "../../lib/index";
+
+const { WILDCARD,
+        OPTIONS_GET,
+        ACCESS_CONTROL_ALLOW_ORIGIN,
+        ACCESS_CONTROL_ALLOW_METHODS,
+        ACCESS_CONTROL_ALLOW_HEADERS,
+        ACCESS_CONTROL_REQUEST_METHOD } = constants;
 
 function headersFromAllowedOrigin(allowedOrigin) {
-  const headers = {
-    "Access-Control-Allow-Origin": allowedOrigin,
-    "Access-Control-Allow-Methods": OPTIONS_GET,
-    "Access-Control-Allow-Headers": WILDCARD,
-    "Access-Control-Request-Method": WILDCARD
-  };
+  const headers = {};
+
+  headers[ ACCESS_CONTROL_ALLOW_ORIGIN ] = allowedOrigin;
+  headers[ ACCESS_CONTROL_ALLOW_METHODS ] = OPTIONS_GET;
+  headers[ ACCESS_CONTROL_ALLOW_HEADERS ] = WILDCARD;
+  headers[ ACCESS_CONTROL_REQUEST_METHOD ] = WILDCARD;
 
   return headers;
 }

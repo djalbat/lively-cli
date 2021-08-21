@@ -1,8 +1,10 @@
 "use strict";
 
-const chokidar = require("chokidar");
+import chokidar from "chokidar";
 
-function watch(watchPattern, quietly) {
+import { ALL, READY } from "./constants";
+
+export default function watch(watchPattern, quietly) {
   if (!quietly) {
     console.log(`Watching "${watchPattern}".`);
   }
@@ -12,8 +14,8 @@ function watch(watchPattern, quietly) {
   let handler,
       unhandledEvents = false;
 
-  watcher.on("ready", () => {
-    watcher.on("all", (event, path) => {
+  watcher.on(READY, () => {
+    watcher.on(ALL, (event, path) => {
       unhandledEvents = true;
 
       callHandler();
@@ -46,5 +48,3 @@ function watch(watchPattern, quietly) {
     callHandler();
   }
 }
-
-module.exports = watch;
