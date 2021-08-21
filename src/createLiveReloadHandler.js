@@ -2,8 +2,8 @@
 
 import watch from "./watch";
 
-const { DEFAULT_QUIETLY } = require("./defaults"),
-      { OK_200_STATUS_CODE } = require("./statusCodes");
+import { DEFAULT_QUIETLY } from "./defaults";
+import { OK_200_STATUS_CODE } from "./statusCodes";
 
 function createLiveReloadHandler(watchPattern, quietly = DEFAULT_QUIETLY) {
   const statusCode = OK_200_STATUS_CODE,
