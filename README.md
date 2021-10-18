@@ -107,7 +107,7 @@ These are the points worth noting:
 
 * The `lively` script invokes Lively with the requisite options. Using a dedicated script in this way means that the options only have to be specified once.
 
-* The `watch` script has been amended to run both Watchful and Lively concurrently. The `watch-debug` script can be treated entirely similarly. The [Concurrently](https://github.com/kimmobrunfeldt/concurrently) package is used for this, in fact.
+* The `watch` script has been amended to run both Watchful and Lively concurrently. The `watch-debug` script can be treated entirely similarly. The [Concurrently](https://github.com/open-cli-tools/concurrently) package is used for this, in fact.
 
 The Concurrently package has not been included in the dependencies because there are other approaches. You will therefore need to install it explicitly if you choose this approach.
 
