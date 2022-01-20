@@ -56,7 +56,7 @@ The typical use case is to watch a bundle file produced by Watchful and notify t
     
 Note that as well as the [glob](https://en.wikipedia.org/wiki/Glob_(programming)) pattern of files to watch, you must include the origin from which your site is served in order for Lively to correctly set the [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) headers.
 
-There is a small amount of JavaScript needed in order to connect to Lively:
+There is a small amount of HTML needed in order to connect to Lively:
 
 ```
 <script>
@@ -77,9 +77,16 @@ There is a small amount of JavaScript needed in order to connect to Lively:
 
 </script>
 ```
-It is strongly recommended that you use this only in development versions of your website. You could make use of a templating system to include it only when a certain environment variable is set, for example.
 
-Once you have started Lively, refresh your browser and, assuming that the above code snippet is present, the page will be reloaded whenever the watched files change.
+It is strongly recommended that you use this only in development versions of your website. You could make use of a templating system to include it only when a certain environment variable is set, for example. In these cases, assuming that the above snippet will suffice, you can import it from the package directly:
+
+```
+import { liveReloadSnippet } from "lively-cli";
+
+/// Include in the relevant templte HTML somehow
+```
+
+Once you have started Lively, refresh your browser and, assuming that the above snippet is present, the page will be reloaded whenever the watched files change.
 
 ### Running by way of npm scripts
 
