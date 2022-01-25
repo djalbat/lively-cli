@@ -78,13 +78,7 @@ There is a small amount of HTML needed in order to connect to Lively:
 </script>
 ```
 
-It is strongly recommended that you use this only in development versions of your website. You could make use of a templating system to include it only when a certain environment variable is set, for example. In these cases, assuming that the above snippet will suffice, you can import it directly:
-
-```
-import { liveReloadSnippet } from "lively-cli";
-
-... // Include the live reload snippet in the relevant templte HTML somehow
-```
+It is strongly recommended that you use this only in development versions of your website. You could make use of a templating system to include it only when a certain environment variable is set, for example.
 
 Once you have started Lively, refresh your browser and, assuming that the above snippet is present, the page will be reloaded whenever the watched files change.
 
@@ -163,6 +157,15 @@ The live reload snippet given earlier can be simplified:
 
 </script>
 ```
+
+In fact, assuming that the above snippet will suffice, you can import it directly:
+
+```
+import { liveReloadSnippet } from "lively-cli";
+
+... // Include the live reload snippet in the relevant templte HTML somehow
+```
+
 Note that the host is dispensed with in the `open()` method's second URL argument, only the relative `/live-reload` path needs to be given.
 
 ## Contact
