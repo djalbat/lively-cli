@@ -1,13 +1,14 @@
 "use strict";
 
 const { createServer } = require("http"),
-      { watch, defaults, statusCodes } = require("../../lib/index");
+      { watch, defaults } = require("../../lib/index"), ///
+      { methods, statusCodes } = require("necessary");
 
 const { headersFromAllowedOrigin } = require("../utilities/headers"),
-      { GET_METHOD, OPTIONS_METHOD } = require("../methods"),
       { NO_WATCH_PATTERN, NO_ALLOWED_ORIGIN } = require("../messages");
 
 const { OK_200_STATUS_CODE } = statusCodes,
+      { GET_METHOD, OPTIONS_METHOD } = methods,
       { DEFAULT_PORT, DEFAULT_QUIETLY } = defaults;
 
 function listen(options) {
