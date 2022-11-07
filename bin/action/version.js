@@ -6,11 +6,11 @@ const { getPackageVersion } = require("../utilities/packageJSON");
 
 const { LIVELY_CLI } = constants;
 
-function version() {
+function versionAction() {
   const packageVersion = getPackageVersion(),
         version = packageVersion; ///
 
   console.log(`${LIVELY_CLI} version ${version}`);
 }
 
-module.exports = version;
+module.exports = versionAction;

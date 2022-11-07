@@ -1,0 +1,13 @@
+"use strict";
+
+const DEFAULT_HELP = false,
+      DEFAULT_VERSION = false,
+      DEFAULT_WATCH_PATTERN = null,
+      DEFAULT_ALLOWED_ORIGIN = null;
+
+module.exports = {
+  DEFAULT_HELP,
+  DEFAULT_VERSION,
+  DEFAULT_WATCH_PATTERN,
+  DEFAULT_ALLOWED_ORIGIN
+};
