@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 
-const { parseArgv } = require("argumentative");
-
-const { arrayUtilities } = require("necessary");
+const { parseArgv } = require("argumentative"),
+      { arrayUtilities } = require("necessary");
 
 const main = require("./bin/main"),
       abbreviations = require("./bin/abbreviations");
