@@ -1,11 +1,10 @@
 "use strict";
 
-import { methods, headers } from "necessary";
+const { methods, headers } = require("necessary");
 
-import { constants } from "../../lib/index";
+const { WILDCARD } = require("../constants");
 
-const { WILDCARD } = constants,
-      { GET_METHOD, OPTIONS_METHOD } = methods,
+const { GET_METHOD, OPTIONS_METHOD } = methods,
       { ACCESS_CONTROL_ALLOW_ORIGIN_HEADER,
         ACCESS_CONTROL_ALLOW_METHODS_HEADER,
         ACCESS_CONTROL_ALLOW_HEADERS_HEADER,

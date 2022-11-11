@@ -1,17 +1,15 @@
 "use strict";
 
-const { defaults } = require("../lib/index"); ///
-
 const helpAction = require("./action/help"),
       listenAction = require("./action/listen"),
       versionAction = require("./action/version");
 
-const { HELP_COMMAND, LISTEN_COMMAND, VERSION_COMMAND } = require("./commands");
-
-const { DEFAULT_HELP, DEFAULT_PORT, DEFAULT_QUIETLY, DEFAULT_VERSION, DEFAULT_WATCH_PATTERN, DEFAULT_ALLOWED_ORIGIN } = defaults;
+const { HELP_COMMAND, LISTEN_COMMAND, VERSION_COMMAND } = require("./commands"),
+      { DEFAULT_HELP, DEFAULT_PORT, DEFAULT_QUIETLY, DEFAULT_VERSION, DEFAULT_WATCH_PATTERN, DEFAULT_ALLOWED_ORIGIN } = require("./defaults");
 
 function actions(command, argument, options) {
-  const { help = DEFAULT_HELP,
+  const commandMissing = (command === null),
+        { help = DEFAULT_HELP,
           port = DEFAULT_PORT,
           quietly = DEFAULT_QUIETLY,
           version = DEFAULT_VERSION,
@@ -24,7 +22,7 @@ function actions(command, argument, options) {
     command = HELP_COMMAND;
   } else if (version) {
     command = VERSION_COMMAND;
-  } else {
+  } else if (commandMissing) {
     command = LISTEN_COMMAND;
   }
 
