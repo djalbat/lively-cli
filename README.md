@@ -31,16 +31,16 @@ Lively has the following commands and options:
 
 Commands:
 
-  version                                        Show the version
-
   help                                           Show this help
+
+  version                                        Show the version
   
 Options:
 
-  --version|-v                                   Show the version
-
   --help|-h                                      Show this help
   
+  --version|-v                                   Show the version
+
   --port|-p                                      The port. The default is 3000.
 
   --quietly|-q                                   Run quietly, without the swirly.
