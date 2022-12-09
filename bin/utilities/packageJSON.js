@@ -1,18 +1,19 @@
 "use strict";
 
 const { constants } = require("../../Lib/index"),
-      { arrayUtilities } = require("necessary");
+      { pathUtilities, arrayUtilities } = require("necessary");
 
 const { second } = arrayUtilities,
       { readFile } = require("../utilities/fileSystem");
 
-const { PACKAGE_JSON } = constants;
+const { PACKAGE_JSON } = constants,
+      { concatenatePaths } = pathUtilities;
 
 const utilitiesDirectoryName = __dirname, ///
       matches = utilitiesDirectoryName.match(/^(.+)\/bin\/utilities$/),
       secondMatch = second(matches),
       applicationDirectoryName = secondMatch, ///
-      packageJSONFilePath = `${applicationDirectoryName}/${PACKAGE_JSON}`,
+      packageJSONFilePath = concatenatePaths(applicationDirectoryName, PACKAGE_JSON),
       packageJSONFile = readFile(packageJSONFilePath),
       packageJSON = JSON.parse(packageJSONFile),
       { version } = packageJSON,
