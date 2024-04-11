@@ -7,7 +7,7 @@ const helpAction = require("./action/help"),
 const { HELP_COMMAND, LISTEN_COMMAND, VERSION_COMMAND } = require("./commands"),
       { DEFAULT_HELP, DEFAULT_PORT, DEFAULT_QUIETLY, DEFAULT_VERSION, DEFAULT_WATCH_PATTERN, DEFAULT_ALLOWED_ORIGIN } = require("./defaults");
 
-function actions(command, argument, options) {
+function main(command, argument, options) {
   const commandMissing = (command === null),
         { help = DEFAULT_HELP,
           port = DEFAULT_PORT,
@@ -33,4 +33,4 @@ function actions(command, argument, options) {
   }
 }
 
-module.exports = actions;
+module.exports = main;
