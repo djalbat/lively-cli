@@ -8,7 +8,7 @@ const watch = require("./watch"),
 const { DEFAULT_QUIETLY } = defaults,
       { OK_200_STATUS_CODE } = statusCodes;
 
-function createLiveReloadHandler(watchPattern, quietly = DEFAULT_QUIETLY) {
+function createLiveReloadHandler(watchPattern, quietly = DEFAULT_QUIETLY, callback = () => {}) {
   const statusCode = OK_200_STATUS_CODE,
         registerHandler = watch(watchPattern, quietly);
 
@@ -19,9 +19,9 @@ function createLiveReloadHandler(watchPattern, quietly = DEFAULT_QUIETLY) {
 
     connection.setTimeout(0);
 
-    registerHandler(() => {
+    registerHandler(callback(() => {
       response.end();
-    });
+    }));
   }
 }
 
