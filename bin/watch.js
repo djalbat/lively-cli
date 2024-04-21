@@ -2,7 +2,7 @@
 
 const chokidar = require("chokidar");
 
-const { ALL, READY } = rquire("./constants");
+const { ALL, READY } = require("./constants");
 
 function watch(watchPattern, quietly) {
   if (!quietly) {
