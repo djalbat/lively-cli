@@ -1,12 +1,12 @@
 "use strict";
 
-import { statusCodes } from "necessary";
+const { statusCodes } = require("necessary");
 
-import watch from "./watch";
+const watch = require("./watch"),
+      defaults = require("./defaults");
 
-import { DEFAULT_QUIETLY } from "./defaults";
-
-const { OK_200_STATUS_CODE } = statusCodes;
+const { DEFAULT_QUIETLY } = defaults,
+      { OK_200_STATUS_CODE } = statusCodes;
 
 function createLiveReloadHandler(watchPattern, quietly = DEFAULT_QUIETLY) {
   const statusCode = OK_200_STATUS_CODE,

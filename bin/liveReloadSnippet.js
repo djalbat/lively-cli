@@ -22,4 +22,4 @@ const liveReloadSnippet = `
                        
 `;
 
-export default liveReloadSnippet;
+module.exports = liveReloadSnippet;

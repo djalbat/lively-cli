@@ -1,10 +1,10 @@
 "use strict";
 
-import chokidar from "chokidar";
+const chokidar = require("chokidar");
 
-import { ALL, READY } from "./constants";
+const { ALL, READY } = rquire("./constants");
 
-export default function watch(watchPattern, quietly) {
+function watch(watchPattern, quietly) {
   if (!quietly) {
     console.log(`Watching "${watchPattern}".`);
   }
@@ -48,3 +48,5 @@ export default function watch(watchPattern, quietly) {
     callHandler();
   }
 }
+
+module.exports = watch;

@@ -1,11 +1,8 @@
 "use strict";
 
-const { defaults } = require("../lib/index"); ///
-
-const { DEFAULT_QUIETLY } = defaults;
-
 const DEFAULT_PORT = 3000,
       DEFAULT_HELP = false,
+      DEFAULT_QUIETLY = false,
       DEFAULT_VERSION = false,
       DEFAULT_WATCH_PATTERN = null,
       DEFAULT_ALLOWED_ORIGIN = null;
