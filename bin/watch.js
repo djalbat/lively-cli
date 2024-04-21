@@ -11,7 +11,7 @@ function watch(watchPattern, quietly) {
 
   const watcher = chokidar.watch(watchPattern);
 
-  let handler,
+  let handler = null,
       unhandledEvents = false;
 
   watcher.on(READY, () => {
@@ -32,7 +32,7 @@ function watch(watchPattern, quietly) {
 
       handler();
 
-      handler = undefined;
+      handler = null;
 
       unhandledEvents = false;
     }
