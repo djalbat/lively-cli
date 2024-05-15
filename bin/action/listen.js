@@ -1,8 +1,9 @@
 "use strict";
 
-const { watch } = require("../../lib/index"), ///
-      { createServer } = require("http"),
+const { createServer } = require("http"),
       { methods, statusCodes } = require("necessary");
+
+const watch = require("../watch");
 
 const { headersFromAllowedOrigin } = require("../utilities/headers"),
       { NO_WATCH_PATTERN, NO_ALLOWED_ORIGIN } = require("../messages");
