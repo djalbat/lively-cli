@@ -27,9 +27,23 @@ function main(command, argument, options) {
   }
 
   switch (command) {
-    case HELP_COMMAND: helpAction(); break;
-    case LISTEN_COMMAND: listenAction(port, quietly, watchPattern, allowedOrigin); break;
-    case VERSION_COMMAND: versionAction(); break;
+    case HELP_COMMAND: {
+      helpAction();
+
+      break;
+    }
+
+    case LISTEN_COMMAND: {
+      listenAction(port, quietly, watchPattern, allowedOrigin);
+
+      break;
+    }
+
+    case VERSION_COMMAND: {
+      versionAction();
+
+      break;
+    }
   }
 }
 
