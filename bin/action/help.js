@@ -3,7 +3,7 @@
 function helpAction() {
   console.log(`Usage: 
   
-  lively [<command>] [<options>]
+  lively [<options>] [<command>] [<argument>] 
 
 Commands:
 
