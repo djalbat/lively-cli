@@ -18,8 +18,6 @@ function main(command, argument, options) {
     case null: {
       console.log(NO_COMMAND_GIVEN_MESSAGE);
 
-      process.exit(1);
-
       break;
     }
 
@@ -43,8 +41,6 @@ function main(command, argument, options) {
 
     default: {
       console.log(COMMAND_NOT_RECOGNISED_MESSAGE);
-
-      process.exit(1);
 
       break;
     }

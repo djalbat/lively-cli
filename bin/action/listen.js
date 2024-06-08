@@ -15,13 +15,13 @@ function listenAction(port, quietly, watchPattern, allowedOrigin) {
   if (watchPattern === null) {
     console.log(NO_WATCH_PATTERN);
 
-    process.exit(1);
+    return;
   }
 
   if (allowedOrigin === null) {
     console.log(NO_ALLOWED_ORIGIN);
 
-    process.exit(1);
+    return;
   }
 
   const registerHandler = watch(watchPattern, quietly),
