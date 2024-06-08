@@ -170,4 +170,4 @@ Note that the host is dispensed with in the `open()` method's second URL argumen
 
 ## Contact
 
-- james.smith@djalbat.com
+* james.smith@djalbat.com
