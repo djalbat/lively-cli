@@ -1,7 +1,7 @@
 "use strict";
 
 const { DEFAULT_HELP, DEFAULT_VERSION } = require("./defaults"),
-      { HELP_COMMAND, VERSION_COMMAND } = require("./commands");
+      { HELP_COMMAND, VERSION_COMMAND, LISTEN_COMMAND } = require("./commands");
 
 function configure(command, argument, options, main) {
   const { help = DEFAULT_HELP, version = DEFAULT_VERSION } = options;
@@ -12,6 +12,8 @@ function configure(command, argument, options, main) {
     command = HELP_COMMAND;
   } else if (version) {
     command = VERSION_COMMAND;
+  } else {
+    command = LISTEN_COMMAND;
   }
 
   main(command, argument, options);
