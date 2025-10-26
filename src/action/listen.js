@@ -1,17 +1,17 @@
 "use strict";
 
-const { createServer } = require("http"),
-      { methods, statusCodes } = require("necessary");
+import { createServer } from "http";
+import { methods, statusCodes } from "necessary";
 
-const watch = require("../watch");
+import watch from "../watch";
 
-const { headersFromAllowedOrigin } = require("../utilities/headers"),
-      { NO_WATCH_PATTERN, NO_ALLOWED_ORIGIN } = require("../messages");
+import { headersFromAllowedOrigin } from "../utilities/headers";
+import { NO_WATCH_PATTERN, NO_ALLOWED_ORIGIN } from "../messages";
 
 const { OK_200_STATUS_CODE } = statusCodes,
       { GET_METHOD, OPTIONS_METHOD } = methods;
 
-function listenAction(port, quietly, watchPattern, allowedOrigin) {
+export default function listenAction(port, quietly, watchPattern, allowedOrigin) {
   if (watchPattern === null) {
     console.log(NO_WATCH_PATTERN);
 
@@ -53,5 +53,3 @@ function listenAction(port, quietly, watchPattern, allowedOrigin) {
     }
   }).listen(port);
 }
-
-module.exports = listenAction;

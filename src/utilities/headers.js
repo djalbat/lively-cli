@@ -1,8 +1,8 @@
 "use strict";
 
-const { methods, headers } = require("necessary");
+import { methods, headers } from "necessary";
 
-const { WILDCARD } = require("../constants");
+import { WILDCARD } from "../constants";
 
 const { GET_METHOD, OPTIONS_METHOD } = methods,
       { ACCESS_CONTROL_ALLOW_ORIGIN_HEADER,
@@ -10,7 +10,7 @@ const { GET_METHOD, OPTIONS_METHOD } = methods,
         ACCESS_CONTROL_ALLOW_HEADERS_HEADER,
         ACCESS_CONTROL_REQUEST_METHOD_HEADER } = headers;
 
-function headersFromAllowedOrigin(allowedOrigin) {
+export function headersFromAllowedOrigin(allowedOrigin) {
   const headers = {};
 
   headers[ACCESS_CONTROL_ALLOW_ORIGIN_HEADER] = allowedOrigin;
@@ -20,7 +20,3 @@ function headersFromAllowedOrigin(allowedOrigin) {
 
   return headers;
 }
-
-module.exports = {
-  headersFromAllowedOrigin
-};

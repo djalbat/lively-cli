@@ -1,6 +1,6 @@
 "use strict";
 
-function helpAction() {
+export default function helpAction() {
   console.log(`Usage: 
   
   lively [<options>] [<command>] [<argument>] 
@@ -32,5 +32,3 @@ Please see the readme file on GitHub:
   https://github.com/djalbat/lively-cli
 `);
 }
-
-module.exports = helpAction;

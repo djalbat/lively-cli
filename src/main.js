@@ -1,14 +1,14 @@
 "use strict";
 
-const helpAction = require("./action/help"),
-      listenAction = require("./action/listen"),
-      versionAction = require("./action/version");
+import helpAction from "./action/help";
+import listenAction from "./action/listen";
+import versionAction from "./action/version";
 
-const { HELP_COMMAND, LISTEN_COMMAND, VERSION_COMMAND } = require("./commands"),
-      { NO_COMMAND_GIVEN_MESSAGE, COMMAND_NOT_RECOGNISED_MESSAGE } = require("./messages"),
-      { DEFAULT_PORT, DEFAULT_QUIETLY, DEFAULT_WATCH_PATTERN, DEFAULT_ALLOWED_ORIGIN } = require("./defaults");
+import { HELP_COMMAND, LISTEN_COMMAND, VERSION_COMMAND } from "./commands";
+import { NO_COMMAND_GIVEN_MESSAGE, COMMAND_NOT_RECOGNISED_MESSAGE } from "./messages";
+import { DEFAULT_PORT, DEFAULT_QUIETLY, DEFAULT_WATCH_PATTERN, DEFAULT_ALLOWED_ORIGIN } from "./defaults";
 
-function main(command, argument, options) {
+export default function main(command, argument, options) {
   const { port = DEFAULT_PORT,
           quietly = DEFAULT_QUIETLY,
           watchPattern = DEFAULT_WATCH_PATTERN,
@@ -46,5 +46,3 @@ function main(command, argument, options) {
     }
   }
 }
-
-module.exports = main;

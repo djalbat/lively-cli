@@ -1,14 +1,14 @@
 "use strict";
 
-const { statusCodes } = require("necessary");
+import { statusCodes } from "necessary";
 
-const watch = require("./watch"),
-      defaults = require("./defaults");
+import watch from "./watch";
+import defaults from "./defaults";
 
 const { DEFAULT_QUIETLY } = defaults,
       { OK_200_STATUS_CODE } = statusCodes;
 
-function createLiveReloadHandler(watchPattern, quietly = DEFAULT_QUIETLY) {
+export default function createLiveReloadHandler(watchPattern, quietly = DEFAULT_QUIETLY) {
   const statusCode = OK_200_STATUS_CODE,
         registerHandler = watch(watchPattern, quietly);
 
@@ -24,5 +24,3 @@ function createLiveReloadHandler(watchPattern, quietly = DEFAULT_QUIETLY) {
     });
   }
 }
-
-module.exports = createLiveReloadHandler;
