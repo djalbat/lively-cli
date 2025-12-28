@@ -1,7 +1,7 @@
 {
   "name": "lively-cli",
   "author": "James Smith",
-  "version": "2.0.82",
+  "version": "2.0.83",
   "license": "MIT, Anti-996",
   "homepage": "https://github.com/djalbat/lively-cli",
   "description": "Live reloading when files change.",
@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@swc/core": "1.13.20",
-    "watchful-cli": "^1.7.67"
+    "watchful-cli": "^1.7.69"
   },
   "scripts": {
     "clean": "rm -rf ./lib",
