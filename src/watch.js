@@ -1,6 +1,6 @@
 "use strict";
 
-import chokidar from "chokidar";
+import { watch as watchEx } from "chokidar";
 
 import { ALL, READY } from "./constants";
 
@@ -9,7 +9,7 @@ export default function watch(watchPattern, quietly) {
     console.log(`Watching "${watchPattern}".`);
   }
 
-  const watcher = chokidar.watch(watchPattern);
+  const watcher = watchEx(watchPattern);
 
   let handler = null,
       unhandledEvents = false;
